@@ -15,7 +15,7 @@ const [students, setUsers] = useState([]);
  
   async function Load() {
     
-    const result = await axios.get("https://localhost:7252/api/Student/GetStudent");
+    const result = await axios.get("https://studentbackend.azurewebsites.net/api/Student/GetStudent");
     setUsers(result.data);
     console.log(result.data);
   }
@@ -24,7 +24,7 @@ const [students, setUsers] = useState([]);
    
     event.preventDefault();
     try {
-      await axios.post("https://localhost:7252/api/Student/AddStudent", {
+      await axios.post("https://studentbackend.azurewebsites.net/api/Student/AddStudent", {
         
         stname: stname,
         course: course,
@@ -53,7 +53,7 @@ const [students, setUsers] = useState([]);
  
 
   async function DeleteStudent(id) {
-  await axios.delete("https://localhost:7252/api/Student/DeleteStudent/" + id);
+  await axios.delete("https://studentbackend.azurewebsites.net/api/Student/DeleteStudent/" + id);
    alert("Employee deleted Successfully");
    setId("");
    setName("");
@@ -66,7 +66,7 @@ const [students, setUsers] = useState([]);
     event.preventDefault();
     try {
 
-  await axios.patch("https://localhost:7252/api/Student/UpdateStudent/"+ students.find((u) => u.id === id).id || id,
+  await axios.patch("https://studentbackend.azurewebsites.net/api/Student/UpdateStudent/"+ students.find((u) => u.id === id).id || id,
         {
         id: id,
         stname: stname,
