@@ -8,6 +8,40 @@ const [id, setId] = useState("");
 const [stname, setName] = useState("");
 const [course, setCourse] = useState("");
 const [students, setUsers] = useState([]);
+
+const [selectedFile, setSelectedFile] = useState(null);
+
+const handleFileChange = (event) => {
+  setSelectedFile(event.target.files[0]);
+};
+
+
+const handleUpload = async (event) => {
+  event.preventDefault();
+
+  if (!selectedFile) {
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('file', selectedFile);
+
+  try {
+    const response = await axios.post('https://studentbackend.azurewebsites.net/api/image/upload', formData);
+
+    if (response.status === 200) {
+      // Handle success
+      console.log('Image uploaded successfully');
+    } else {
+      // Handle error
+      console.log('Failed to upload image');
+    }
+  } catch (error) {
+    // Handle error
+    console.log('Error occurred while uploading image', error);
+  }
+};
+
  
   useEffect(() => {
     (async () => await Load())();
@@ -178,7 +212,10 @@ const [students, setUsers] = useState([]);
           );
         })}
       </table>
-        
+      <form onSubmit={handleUpload}>
+        <input type="file" onChange={handleFileChange} />
+        <button type="submit">Upload</button>
+      </form>        
       </div>
     );
   }
