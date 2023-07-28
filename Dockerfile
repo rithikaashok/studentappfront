@@ -5,7 +5,7 @@ FROM node:14-alpine
 WORKDIR /app
 
 # Copy the package.json and package-lock.json (if available)
-COPY package*.json /app
+COPY package*.json ./
 
 # Install project dependencies
 
