@@ -29,6 +29,16 @@ jobs:
      command: 'buildAndPush'
      Dockerfile: '**/Dockerfile'  
 
+  - task: CopyFiles@2
+    inputs:
+     SourceFolder: '$(agent.builddirectory)'
+     Contents: '**/dep.yml'
+     TargetFolder: '$(build.artifactstagingdirectory)'
+
+  - task: PublishPipelineArtifact@1
+    inputs: 
+     targetPath: '$(Build.ArtifactStagingDirectory)'
+     artifactName: 'drop'
 
   - task: AzureStaticWebApp@0
     inputs:
