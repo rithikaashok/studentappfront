@@ -21,16 +21,15 @@ jobs:
   - checkout: self
     submodules: true
     
-  
   - task: Docker@2
+    displayName: buildAndPush
     inputs:
-      containerRegistry: 'myconn'
-      repository: 'reactapp'
-      command: 'buildAndPush'
-      Dockerfile: '**/Dockerfile' 
-      tags: 
-       $(Build.BuildId)
-       latest
+     containerRegistry: myconn
+     repository: reactapp
+     buildContext: '$(System.DefaultWorkingDirectory)'
+     tags: |
+      $(Build.BuildId)
+      latest
 
   - task: CopyFiles@2
     inputs:
