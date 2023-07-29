@@ -11,7 +11,7 @@ spec:
     metadata:
       labels:
         app: reactapp
-    spec:
+    spec: 
       containers:
         - name: react-app-container
           image: studentregimages.azurecr.io/reactapp:196  # Replace with your Docker image URL
