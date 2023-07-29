@@ -21,11 +21,12 @@ jobs:
   - checkout: self
     submodules: true
     
+  
   - task: Docker@2
     displayName: buildAndPush
     inputs:
      containerRegistry: myconn
-     repository: reactapp
+     repository: myrepo
      buildContext: '$(System.DefaultWorkingDirectory)'
      tags: |
       $(Build.BuildId)
