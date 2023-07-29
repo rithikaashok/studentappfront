@@ -6,11 +6,11 @@ spec:
   replicas: 2  # Set the desired number of replicas based on your needs
   selector:
     matchLabels:
-      app: reactapp
+      app: reactfrontend
   template:
     metadata:
       labels:
-        app: reactapp
+        app: reactfrontend
     spec: 
       containers:
         - name: react-app-container
