@@ -13,7 +13,7 @@ spec:
         app: reactapp
     spec: 
       containers:
-        - name: react-app-container
+        - name: reactfrontend
           image: studentregimages.azurecr.io/reactapp:196  # Replace with your Docker image URL
           ports:
             - containerPort: 3000  # The port your React app is listening on
