@@ -27,7 +27,7 @@ const handleUpload = async (event) => {
   formData.append('file', selectedFile);
 
   try {
-    const response = await axios.post('https://studentbackend.azurewebsites.net/api/image/upload', formData);
+    const response = await axios.post('http://4.255.110.157/api/image/upload', formData);
 
     if (response.status === 200) {
       // Handle success
