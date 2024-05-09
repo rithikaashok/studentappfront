@@ -49,7 +49,7 @@ const handleUpload = async (event) => {
  
   async function Load() {
     
-    const result = await axios.get("https://studentbackend.azurewebsites.net/api/Student/GetStudent");
+    const result = await axios.get("http://4.255.110.157/api/Student/GetStudent");
     setUsers(result.data);
     console.log(result.data);
   }
@@ -58,7 +58,7 @@ const handleUpload = async (event) => {
    
     event.preventDefault();
     try {
-      await axios.post("https://studentbackend.azurewebsites.net/api/Student/AddStudent", {
+      await axios.post("http://4.255.110.157/api/Student/AddStudent", {
         
         stname: stname,
         course: course,
@@ -87,7 +87,7 @@ const handleUpload = async (event) => {
  
 
   async function DeleteStudent(id) {
-  await axios.delete("https://studentbackend.azurewebsites.net/api/Student/DeleteStudent/" + id);
+  await axios.delete("http://4.255.110.157/api/Student/DeleteStudent/" + id);
    alert("Employee deleted Successfully");
    setId("");
    setName("");
@@ -100,7 +100,7 @@ const handleUpload = async (event) => {
     event.preventDefault();
     try {
 
-  await axios.patch("https://studentbackend.azurewebsites.net/api/Student/UpdateStudent/"+ students.find((u) => u.id === id).id || id,
+  await axios.patch("http://4.255.110.157/api/Student/UpdateStudent/"+ students.find((u) => u.id === id).id || id,
         {
         id: id,
         stname: stname,
