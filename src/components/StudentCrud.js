@@ -53,6 +53,11 @@ const handleUpload = async (event) => {
     setUsers(result.data);
     console.log(result.data);
   }
+
+  async function pgrefresh() {
+     window.location.reload();
+  };
+
  
   async function save(event) {
    
@@ -95,10 +100,7 @@ const handleUpload = async (event) => {
    Load();
   }
  
-async function App() {
-  const handleRefreshClick = () => {
-   // window.location.reload();
-  };
+
 
   async function update(event) {
     event.preventDefault();
@@ -171,7 +173,7 @@ async function App() {
             <button class="btn btn-warning mt-4" onClick={update}>
               Update
             </button>
-            <button class="btn btn-warning mt-4" onClick={handleRefreshClick}>
+            <button class="btn btn-warning mt-4" onClick={pgrefresh}>
               Refresh
             </button>
             
