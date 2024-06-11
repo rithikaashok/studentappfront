@@ -25,7 +25,7 @@ const handleUpload = async (event) => {
 
   const formData = new FormData();
   formData.append('file', selectedFile);
-
+//text
   try {
     const response = await axios.post('http://studentwebapp06.azurewebsites.net/api/image/upload', formData);
 
