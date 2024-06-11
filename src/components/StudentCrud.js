@@ -49,7 +49,7 @@ const handleUpload = async (event) => {
  
   async function Load() {
     
-    const result = await axios.get("http://studentwebapp06.azurewebsites.net.azurewebsites.net/api/Student/GetStudent");
+    const result = await axios.get("http://studentwebapp06.azurewebsites.net/api/Student/GetStudent");
     setUsers(result.data);
     console.log(result.data);
   }
