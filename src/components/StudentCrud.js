@@ -167,6 +167,10 @@ const handleUpload = async (event) => {
             <button class="btn btn-warning mt-4" onClick={update}>
               Update
             </button>
+            <button class="btn btn-warning mt-4" onClick={location.reload()}>
+              Refresh
+            </button>
+            
           </div>
         </form>
       </div>
