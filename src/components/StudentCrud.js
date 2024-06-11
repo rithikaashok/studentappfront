@@ -95,6 +95,10 @@ const handleUpload = async (event) => {
    Load();
   }
  
+async function App() {
+  const handleRefreshClick = () => {
+    window.location.reload();
+  };
 
   async function update(event) {
     event.preventDefault();
@@ -167,7 +171,7 @@ const handleUpload = async (event) => {
             <button class="btn btn-warning mt-4" onClick={update}>
               Update
             </button>
-            <button class="btn btn-warning mt-4" onClick={location.reload()}>
+            <button class="btn btn-warning mt-4" onClick={handleRefreshClick}>
               Refresh
             </button>
             
