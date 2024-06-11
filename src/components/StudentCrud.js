@@ -97,7 +97,7 @@ const handleUpload = async (event) => {
  
 async function App() {
   const handleRefreshClick = () => {
-    window.location.reload();
+   // window.location.reload();
   };
 
   async function update(event) {
