@@ -27,7 +27,7 @@ const handleUpload = async (event) => {
   formData.append('file', selectedFile);
 //text
   try {
-    const response = await axios.post('http://studentwebapp06.azurewebsites.net/api/image/upload', formData);
+    const response = await axios.post('http://studentwebapp06/api/image/upload', formData);
 
     if (response.status === 200) {
       // Handle success
@@ -49,7 +49,7 @@ const handleUpload = async (event) => {
  
   async function Load() {
     
-    const result = await axios.get("http://studentwebapp06.azurewebsites.net/api/Student/GetStudent");
+    const result = await axios.get("http://studentwebapp06/api/Student/GetStudent");
     setUsers(result.data);
     console.log(result.data);
   }
@@ -58,7 +58,7 @@ const handleUpload = async (event) => {
    
     event.preventDefault();
     try {
-      await axios.post("http://studentwebapp06.azurewebsites.net/api/Student/AddStudent", {
+      await axios.post("http://studentwebapp06/api/Student/AddStudent", {
         
         stname: stname,
         course: course,
@@ -87,7 +87,7 @@ const handleUpload = async (event) => {
  
 
   async function DeleteStudent(id) {
-  await axios.delete("http://studentwebapp06.azurewebsites.net/api/Student/DeleteStudent/" + id);
+  await axios.delete("http://studentwebapp06/api/Student/DeleteStudent/" + id);
    alert("Employee deleted Successfully");
    setId("");
    setName("");
@@ -100,7 +100,7 @@ const handleUpload = async (event) => {
     event.preventDefault();
     try {
 
-  await axios.patch("http://studentwebapp06.azurewebsites.net/UpdateStudent/"+ students.find((u) => u.id === id).id || id,
+  await axios.patch("http://studentwebapp06/UpdateStudent/"+ students.find((u) => u.id === id).id || id,
         {
         id: id,
         stname: stname,
